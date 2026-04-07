@@ -1,15 +1,33 @@
 // src/App.jsx
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { Box, Heading } from '@chakra-ui/react';
+import { AuthProvider } from './context/AuthContext';
+import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
   return (
-    <Box p={4}>
-      <Routes>
-        {/* We will replace this with our actual routes in Issue 2 & 3 */}
-        <Route path="/" element={<Heading>CBT System Initialized</Heading>} />
-      </Routes>
-    </Box>
+    <AuthProvider>
+      <Box p={4} minH="100vh" bg="gray.50">
+        <Routes>
+          {/* Public Routes (Placeholders for Issue 3 & 4) */}
+          <Route path="/login" element={<Heading>Login Page Coming Soon</Heading>} />
+          <Route path="/register" element={<Heading>Register Page Coming Soon</Heading>} />
+
+          {/* Protected Routes */}
+          <Route 
+            path="/dashboard" 
+            element={
+              <ProtectedRoute>
+                <Heading>Student Dashboard (Protected)</Heading>
+              </ProtectedRoute>
+            } 
+          />
+
+          {/* Default Route */}
+          <Route path="/" element={<Navigate to="/dashboard" replace />} />
+        </Routes>
+      </Box>
+    </AuthProvider>
   );
 }
 
