@@ -5,6 +5,7 @@ import {
   Box, VStack, HStack, Heading, Text, RadioGroup, Radio, Button, Progress, useToast, Container, Divider
 } from '@chakra-ui/react';
 import api from '../services/api';
+import ExamTimer from '../components/ExamTimer';
 
 const ExamEngine = () => {
   const { id: examId } = useParams();
@@ -115,9 +116,11 @@ const ExamEngine = () => {
           </VStack>
           
           {/* Issue 9 Placeholder: Timer will go here */}
-          <Box p={3} bg="red.50" color="red.600" borderRadius="md" fontWeight="bold">
-            Time Remaining: {examData.duration}:00
-          </Box>
+          <ExamTimer
+          duration={examData.duration} // Duration in minutes
+          sessionId={sessionId} // Unique session identifier for timer persistence
+          onExpire={handleSubmit} // Auto-submit when time expires
+          />
         </HStack>
 
         <Progress value={progressValue} size="sm" colorScheme="blue" mb={6} borderRadius="full" />
