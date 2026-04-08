@@ -6,6 +6,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard'; // Placeholder for future dashboard page
+import ExamEngine from './pages/ExamEngine';
 
 function App() {
   return (
@@ -25,6 +26,12 @@ function App() {
               </ProtectedRoute>
             } 
           />
+          <Route
+          path="/exam/:id" element={
+            <protectedRoute>
+              <ExamEngine />
+            </protectedRoute>
+          } />
 
           {/* Default Route */}
           <Route path="/" element={<Navigate to="/dashboard" replace />} />
