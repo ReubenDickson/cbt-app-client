@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { Box, Heading } from '@chakra-ui/react';
 import { AuthProvider } from './context/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
+import Register from './pages/Register';
 
 function App() {
   return (
@@ -11,14 +12,14 @@ function App() {
         <Routes>
           {/* Public Routes (Placeholders for Issue 3 & 4) */}
           <Route path="/login" element={<Heading>Login Page Coming Soon</Heading>} />
-          <Route path="/register" element={<Heading>Register Page Coming Soon</Heading>} />
+          <Route path="/register" element={<Register />} />
 
           {/* Protected Routes */}
           <Route 
             path="/dashboard" 
             element={
               <ProtectedRoute>
-                <Heading>Student Dashboard (Protected)</Heading>
+                <Heading p={4}>Student Dashboard (Protected)</Heading>
               </ProtectedRoute>
             } 
           />
