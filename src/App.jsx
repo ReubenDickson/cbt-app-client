@@ -5,6 +5,7 @@ import { AuthProvider } from './context/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import Register from './pages/Register';
 import Login from './pages/Login';
+import Dashboard from './pages/Dashboard'; // Placeholder for future dashboard page
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
             path="/dashboard" 
             element={
               <ProtectedRoute>
-                <Heading p={4}>Student Dashboard (Protected)</Heading>
+                <Dashboard />
               </ProtectedRoute>
             } 
           />
