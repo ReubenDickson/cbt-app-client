@@ -4,6 +4,7 @@ import { Box, Heading } from '@chakra-ui/react';
 import { AuthProvider } from './context/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import Register from './pages/Register';
+import Login from './pages/Login';
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
       <Box p={4} minH="100vh" bg="gray.50">
         <Routes>
           {/* Public Routes (Placeholders for Issue 3 & 4) */}
-          <Route path="/login" element={<Heading>Login Page Coming Soon</Heading>} />
+          <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
 
           {/* Protected Routes */}
