@@ -74,17 +74,15 @@ const ExamEngine = () => {
        // Issue 10/Sprint 4: Submit Exam Action
        const response = await api.post(`/student-exams/${examId}/submit`, { answers: formattedAnswers });
 
-       toast({
-         title: 'Exam Submitted Successfully!',
-         description: `You scored ${response.data.score} out of ${response.data.total}.`,
-         status: 'success',
-         duration: 7000,
-         isClosable: true,
-         position: 'top',
-       });
 
        sessionStorage.removeItem('currentExamSession');
-       navigate('/dashboard'); // We will build a dedicated Result view later
+       navigate('/result', {
+        state: {
+          score: response.data.score,
+          total: response.data.total,
+          examTitle: examData.title
+        }
+       }); // Dedicated result viewer page to show score and feedback
 
     } catch (error) {
        toast({
