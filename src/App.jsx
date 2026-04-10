@@ -7,6 +7,7 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard'; // Placeholder for future dashboard page
 import ExamEngine from './pages/ExamEngine';
+import ResultView from './pages/ResultView';
 
 function App() {
   return (
@@ -28,10 +29,18 @@ function App() {
           />
           <Route
           path="/exam/:id" element={
-            <protectedRoute>
+            <ProtectedRoute>
               <ExamEngine />
-            </protectedRoute>
+            </ProtectedRoute>
           } />
+
+          <Route
+          path="/result" element={
+          <ProtectedRoute>
+            <ResultView />
+          </ProtectedRoute>
+          }
+          />
 
           {/* Default Route */}
           <Route path="/" element={<Navigate to="/dashboard" replace />} />
