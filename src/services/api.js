@@ -6,17 +6,21 @@ const api = axios.create({
 });
 
 // Intercept requests to automatically add the Authorization header
-api.interceptors.request.use(
-  (config) => {
-    const token = localStorage.getItem('token');
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
-    }
+api.interceptors.request.use((config) => {
+  // 
+  if (config.headers.request.Authorization) {
     return config;
-  },
-  (error) => {
-    return Promise.reject(error);
   }
-);
+  //
+  const studentToken = sessionStorage.getItem('token'); //
+
+  if (studentToken) {
+    config.headers.Authorization = `Bearer ${studentToken}`;
+  }
+
+  return config;
+}, (error) => {
+  return Promise.reject(error);
+});
 
 export default api;

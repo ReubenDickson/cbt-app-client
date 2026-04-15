@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import {
   Box, Button, FormControl, FormLabel, Input, Heading, VStack, useToast, Container, Text
 } from '@chakra-ui/react';
-import api from '../services/api';
+import api from '../../services/api';
 
 const AdminLogin = () => {
   const [staffId, setStaffId] = useState('');

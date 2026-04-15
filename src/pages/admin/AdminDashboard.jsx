@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import {
   Box, Flex, VStack, Heading, Text, Button, Divider, useToast
 } from '@chakra-ui/react';
+import ExamCreator from './ExamCreator';
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
@@ -74,9 +75,7 @@ const AdminDashboard = () => {
           </Text>
           
           <Box p={6} bg="blue.50" borderRadius="md" borderStyle="dashed" borderWidth="2px" borderColor="blue.200">
-            <Text color="blue.700" textAlign="center" fontWeight="medium">
-              Module Placeholder: The Exam Creation Interface will be built here in our next step.
-            </Text>
+            <ExamCreator />
           </Box>
         </Box>
       </Box>

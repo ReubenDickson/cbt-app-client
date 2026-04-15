@@ -8,9 +8,9 @@ import Login from './pages/Login';
 import Dashboard from './pages/Dashboard'; // Placeholder for future dashboard page
 import ExamEngine from './pages/ExamEngine';
 import ResultView from './pages/ResultView';
-import AdminLogin from './pages/AdminLogin';
-import AdminProtectedRoute from './components/AdminProtectedRoute';
-import AdminDashboard from './pages/AdminDashboard';
+import AdminLogin from './pages/admin/AdminLogin';
+import AdminProtectedRoute from './components/admin/AdminProtectedRoute';
+import AdminDashboard from './pages/admin/AdminDashboard';
 
 function App() {
   return (
