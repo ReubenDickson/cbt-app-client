@@ -8,6 +8,9 @@ import Login from './pages/Login';
 import Dashboard from './pages/Dashboard'; // Placeholder for future dashboard page
 import ExamEngine from './pages/ExamEngine';
 import ResultView from './pages/ResultView';
+import AdminLogin from './pages/AdminLogin';
+import AdminProtectedRoute from './components/AdminProtectedRoute';
+import AdminDashboard from './pages/AdminDashboard';
 
 function App() {
   return (
@@ -41,6 +44,17 @@ function App() {
           </ProtectedRoute>
           }
           />
+
+          {/* Admin Routes */}
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route 
+          path="/admin/dashboard" 
+          element={
+            <AdminProtectedRoute>
+              <AdminDashboard />
+            </AdminProtectedRoute>
+          } 
+        />
 
           {/* Default Route */}
           <Route path="/" element={<Navigate to="/dashboard" replace />} />
